@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        mavenLocal()
+//        JCenter()
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.github.lkishalmi.gatling:gradle-gatling-plugin:3.0.2'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'scala'
+}
+
+apply plugin: "com.github.lkishalmi.gatling"
+
+
+dependencies {
+
+    testCompile (
+            'io.gatling.highcharts:gatling-charts-highcharts:3.0.2'
+    )
+}
+
+//////////////////////
+// GATLING
+//////////////////////
+
+
+sourceSets {
+    gatling {
+        scala.srcDirs = ['src/gatling']
+        resources.srcDirs = ['src/gatling/simulations',
+                             'src/gatling/resources']
+    }
+}
+
+gatling {
+    toolVersion = '3.0.2'
+    scalaVersion = '2.12.8'
+    simulations = {
+        include "**/*.scala"
+    }
+}
+
+gradle.startParameter.continueOnFailure = true
