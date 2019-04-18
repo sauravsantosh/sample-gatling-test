@@ -1,4 +1,10 @@
-# Gatling Starter Project
+# Sample Gatling Project
+
+### Prerequisites
+
+- Java
+- Gradle
+- Scala
 
 #### [Running Gatling Test]
 One can easily override config variables while running test via command line.
