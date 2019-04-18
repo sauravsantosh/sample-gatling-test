@@ -16,10 +16,6 @@ class ApiTests extends Simulation {
   val noOfUsers: Int = ConfigFactory.load("application.conf").getInt("noOfUsers")
   val rampUp: Int = ConfigFactory.load("application.conf").getInt("rampUp")
 
-  // Define the http configuration.
-  val proxyHost = ConfigFactory.load().getString("https.proxyHost")
-  val proxyPort: Int = ConfigFactory.load().getInt("https.proxyPort")
-
   val httpConf = http.baseUrl(baseUrl)
 
   // Define the scenarios

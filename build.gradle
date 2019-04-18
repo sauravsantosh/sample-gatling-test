@@ -1,10 +1,14 @@
+
 buildscript {
     repositories {
-        mavenLocal()
-//        JCenter()
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath 'gradle.plugin.com.github.lkishalmi.gatling:gradle-gatling-plugin:3.0.2'
+        classpath "gradle.plugin.com.github.lkishalmi.gatling:gradle-gatling-plugin:3.0.2"
     }
 }
 
@@ -17,12 +21,18 @@ plugins {
 
 apply plugin: "com.github.lkishalmi.gatling"
 
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
 
 dependencies {
 
-    testCompile (
-            'io.gatling.highcharts:gatling-charts-highcharts:3.0.2'
-    )
+    testCompile ('io.gatling.highcharts:gatling-charts-highcharts:3.0.2')
+    testCompile ('org.scala-lang:scala-library:2.11.8')
 }
 
 //////////////////////
